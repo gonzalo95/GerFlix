@@ -1,5 +1,6 @@
 
 #include "Usuario.h"
+#include <string.h>
 
 void inicializarUsuariosEstado(eUsuario usuarios[], int cant)
 {
@@ -31,13 +32,34 @@ void inicializarUsuariosHardCode(eUsuario usuarios[])
         strcpy(usuarios[i].nombre, nombre[i]);
 
     }
-
-
-
-
-
-
-
-
-
 }
+
+void mostrarListaUsuarios(eUsuario usuario[], int len)
+{
+    int i;
+
+    for(i = 0; i < len; i++)
+    {
+        if(usuario[i].estado ==1)
+            printf("%d, %s, %d\n", usuario[i].idUsuario, usuario[i].nombre, usuario[i].idSerie);
+    }
+}
+
+void mostrarUsuarioConSuSerie(eUsuario usuario[], int lenUsuario, eSerie serie[], int lenSerie)
+{
+    int i;
+    int j;
+    char serieNombre[50];
+
+    for(i = 0; i < lenUsuario; i++)
+    {
+        for(j = 0; j < lenSerie; j++)
+        {
+            if(serie[j].idSerie == usuario[i].idSerie && serie[j].estado == 1)
+                strcpy(serieNombre, serie[j].nombre);
+        }
+        if(usuario[i].estado ==1)
+            printf("%s -- %s\n", usuario[i].nombre, serieNombre);
+    }
+}
+

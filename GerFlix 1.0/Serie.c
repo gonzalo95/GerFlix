@@ -41,6 +41,21 @@ void inicializarSeriesHardCode(eSerie series[])
     }
 }
 
+void mostrarListaSeries(eSerie serie[], int len)
+{
+    int i;
+    for(i = 0; i < len; i++)
+    {
+        if(serie[i].estado == 1)
+            printf("%d, %s, %s, %d\n", serie[i].idSerie, serie[i].nombre, serie[i].genero, serie[i].cantidadTemporadas);
+    }
+}
+
+void mostrarSerieConSusUsuarios(eSerie serie[], int lenSerie, eUsuario usuario[], int lenUsuario)
+{
+
+}
+
 
 
 

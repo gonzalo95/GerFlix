@@ -51,10 +51,7 @@ void mostrarListaSeries(eSerie serie[], int len)
     }
 }
 
-void mostrarSerieConSusUsuarios(eSerie serie[], int lenSerie, eUsuario usuario[], int lenUsuario)
-{
 
-}
 
 
 

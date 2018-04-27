@@ -55,11 +55,27 @@ void mostrarUsuarioConSuSerie(eUsuario usuario[], int lenUsuario, eSerie serie[]
     {
         for(j = 0; j < lenSerie; j++)
         {
-            if(serie[j].idSerie == usuario[i].idSerie && serie[j].estado == 1)
-                strcpy(serieNombre, serie[j].nombre);
+            if(serie[j].idSerie == usuario[i].idSerie && usuario[i].estado == 1)
+                printf("%s -- %s\n", usuario[i].nombre, serie[j].nombre);
         }
-        if(usuario[i].estado ==1)
-            printf("%s -- %s\n", usuario[i].nombre, serieNombre);
+    }
+}
+
+void mostrarSerieConSusUsuarios(eSerie serie[], int lenSerie, eUsuario usuario[], int lenUsuario)
+{
+    int i;
+    int j;
+
+    for(i = 0; i < lenSerie; i++)
+    {
+        if(serie[i].estado == 1)
+            printf("\nSerie: %s", serie[i].nombre);
+
+        for(j = 0; j < lenUsuario; j++)
+        {
+            if(usuario[j].estado == 1 && usuario[j].idSerie == serie[i].idSerie)
+                printf("\n%s", usuario[j].nombre);
+        }
     }
 }
 
